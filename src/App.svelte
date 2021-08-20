@@ -5,7 +5,7 @@
     export let subscribe_sum;
     export let isAuthorized;
 
-    function handleBuy(paymentMethod) {
+    export function handleBuy(paymentMethod) {
 
         const url = '/ajax/addtobasket.php';
         var formData = new FormData();
@@ -68,7 +68,7 @@
                             купить
                         </button>
                     {:else}
-                        <button on:click="{() => handleBuy('card')}" class="js-modal js-modal-auth solutions__bottom_column-btn grey">
+                        <button data-payment="card" class="js-modal js-modal-auth solutions__bottom_column-btn grey">
                             купить
                         </button>
                     {/if}
@@ -97,7 +97,7 @@
                             В рассрочку
                         </button>
                     {:else}
-                        <button class="js-modal js-modal-auth solutions__bottom_column-btn yellow">
+                        <button data-payment="installment" class="js-modal js-modal-auth solutions__bottom_column-btn yellow">
                             В рассрочку
                         </button>
                     {/if}
